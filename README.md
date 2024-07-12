@@ -42,4 +42,8 @@ Javascript + SMC (for faster)
 
  Now you can use tailwind css by adding its classes.
 
- 
+ crete a pages folder in assets
+ pages like "home.jsx" , profile.jsx , about.jsx etc
+
+ now in the client
+  >npm i react-router-dom
