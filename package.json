@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.24.1"
+  },
+  "name": "mern-estate",
+  "version": "1.0.0",
+  "description": "1. Create a folder named mern-esate(project name)\r 2. # Install React using vite\r  In the terminal run \r > npm create vite@latest client\r choose \r React\r then\r Javascript + SMC (for faster)\r 3. >cd client\r    >npm i (ti install react, react -DOM etc.)",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
