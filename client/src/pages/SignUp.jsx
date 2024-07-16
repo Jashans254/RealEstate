@@ -3,29 +3,38 @@ import { Link, useNavigate } from 'react-router-dom';
 // import OAuth from '../components/';
 export default function SignUp() {
 
-  const [formdata, setFormData] = useState({});
+  const [formdata, setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
   const [error,setError] = useState(null);
-  const [loading, setLoading] =useState(false);
-  const navigate =useNavigate();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({
       ...formdata,
-      [e.target.id]:e.target.value,
+      [e.target.id]: e.target.value,
     });
   };
   // console.log(formdata);
   // Handles page Refreshing 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // setLoading(true);
+    // setError(null);
+    // // setSuccess(false);
     try {
       setLoading(true);
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('/api/auth/sign-up', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formdata),
       });
+
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
@@ -52,6 +61,7 @@ export default function SignUp() {
         placeholder='Enter your username' 
         className='border p-3 rounded-lg' 
         id='username' 
+        value={formdata.username}
         onChange={handleChange}
         />
 
@@ -59,7 +69,8 @@ export default function SignUp() {
           type="email" 
           placeholder='Enter your email'
             className='border p-3 rounded-lg'
-            id='email ' 
+            id='email' 
+            value={formdata.email}
             onChange={handleChange} 
             />
 
@@ -68,22 +79,25 @@ export default function SignUp() {
           placeholder='Password'
             className='border p-3 rounded-lg' 
             id='password'  
+            value={formdata.password}
             onChange={handleChange}  
           />
 
-        <button  disabled={loading} 
+        <button 
+         onClick={handleSubmit}
+         disabled={loading} 
           className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
         {loading? 'Loading...': 'Sign-Up'}
         </button>
 
       </form>
-      <div className='flexx gap-2 mt-5'>
+      <div className='flex gap-2 mt-5'>
         <p>Have an Account?</p>
         <Link to={'/sign-in'}>
            <span className='text-blue-700'>Sign IN</span>
         </Link>
       </div>
-      {error && <p className='twxt-red-500 mt-5'>{error}</p>}
+      {error && <p className='text-red-500 mt-5'>{error}</p>}
     </div>
   );
 }
