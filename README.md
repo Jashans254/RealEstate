@@ -61,3 +61,7 @@ create signup api route
 2. include next in auth.controller.js
 3. create a util in api with file "error.js"to handle errors
 // complete signup page UI
+  "Signup.jsx"
+//Add functionality to it
+//added a handlesubmit so that we donot lose info . age won't get refreshed.
+  
