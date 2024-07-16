@@ -47,3 +47,16 @@ Javascript + SMC (for faster)
 
  now in the client
   >npm i react-router-dom
+
+
+//Create pages and routes
+create header component
+create and run the server
+connect to the database
+//create user model
+create test api route
+create signup api route
+//create a middleware and a function to handle possible errors
+1. create middleware in index.js
+2. include next in auth.controller.js
+3. create a util in api with file "error.js"to handle errors
