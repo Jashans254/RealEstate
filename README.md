@@ -87,4 +87,29 @@ create signup api route
 npm i redux-persist
 go to store.js
 combine reducers
+update in main.jsx
 
+
+# add google OAuth functionality
+create Oauth in components folder
+>rfc
+add handlegoogleclick function
+add button  in the signin and signup page
+
+Now go to firebase.google.com
+go to console
+start new project
+name your project
+start building 
+then a page appears
+go to web <>
+register app
+
+Add a firebase file copy the given code and paste it in here 
+//create an another .env file inside your client folder and put your api key in there 
+
+//at firebase > continue to console
+then authentication> get started
+now project name>Estate App
+add email
+then ready
