@@ -60,3 +60,4 @@ create signup api route
 1. create middleware in index.js
 2. include next in auth.controller.js
 3. create a util in api with file "error.js"to handle errors
+// complete signup page UI
