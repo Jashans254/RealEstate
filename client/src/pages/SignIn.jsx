@@ -12,7 +12,7 @@ export default function SignIn() {
     username: '',
     email: '',
     password: ''
-  });
+  });  
   const {loading, error} = useSelector((state)=> state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();

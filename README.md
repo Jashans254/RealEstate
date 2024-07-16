@@ -65,7 +65,7 @@ create signup api route
 //Add functionality to it
 //added a handlesubmit so that we donot lose info . age won't get refreshed.
 
-  //create signin api route
+ # create signin api route
   include this in "auth.route.js"
   {
     router.post("/sign-in", signin);
@@ -73,9 +73,18 @@ create signup api route
   add signin variable in controller
   
 
-  //Add Redux toolkit
+# Add Redux toolkit
   so we can have access to user data at different places\
   go to web https://redux-toolkit.js.org/
   > quik start
   follow the steps
   //add slice reducers to the store
+  here go to inspect in browser and then open redux and you can see what you have done in this part there
+
+//We are losing data here after refreshing
+# Add redux persist
+
+npm i redux-persist
+go to store.js
+combine reducers
+
