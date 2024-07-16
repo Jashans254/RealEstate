@@ -66,4 +66,9 @@ create signup api route
 //added a handlesubmit so that we donot lose info . age won't get refreshed.
 
   //create signin api route
+  include this in "auth.route.js"
+  {
+    router.post("/sign-in", signin);
+  }
+  add signin variable in controller
   
