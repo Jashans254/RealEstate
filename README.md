@@ -72,3 +72,10 @@ create signup api route
   }
   add signin variable in controller
   
+
+  //Add Redux toolkit
+  so we can have access to user data at different places\
+  go to web https://redux-toolkit.js.org/
+  > quik start
+  follow the steps
+  //add slice reducers to the store
