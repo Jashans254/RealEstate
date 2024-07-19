@@ -9,7 +9,6 @@ import OAuth from '../components/OAuth';
 export default function SignIn() {
 
   const [formdata, setFormData] = useState({
-    username: '',
     email: '',
     password: ''
   });  
@@ -78,7 +77,7 @@ export default function SignIn() {
           />
 
         <button 
-         onClick={handleSubmit}
+         type='submit'
          disabled={loading} 
           className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
         {loading? 'Loading...': 'Sign In'}

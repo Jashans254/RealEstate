@@ -49,7 +49,7 @@ Javascript + SMC (for faster)
   >npm i react-router-dom
 
 
-//Create pages and routes
+8. //Create pages and routes
 create header component
 create and run the server
 connect to the database
@@ -65,14 +65,14 @@ create signup api route
 //Add functionality to it
 //added a handlesubmit so that we donot lose info . age won't get refreshed.
 
- # create signin api route
+9.  # create signin api route
   include this in "auth.route.js"
   {
     router.post("/sign-in", signin);
   }
   add signin variable in controller
   
-
+10. 
 # Add Redux toolkit
   so we can have access to user data at different places\
   go to web https://redux-toolkit.js.org/
@@ -82,7 +82,7 @@ create signup api route
   here go to inspect in browser and then open redux and you can see what you have done in this part there
 
 //We are losing data here after refreshing
-# Add redux persist
+11. # Add redux persist
 
 npm i redux-persist
 go to store.js
@@ -90,7 +90,7 @@ combine reducers
 update in main.jsx
 
 
-# add google OAuth functionality
+12. # add google OAuth functionality
 create Oauth in components folder
 >rfc
 add handlegoogleclick function
@@ -113,3 +113,7 @@ then authentication> get started
 now project name>Estate App
 add email
 then ready
+
+
+13. update the header and make the profile page private
+  
