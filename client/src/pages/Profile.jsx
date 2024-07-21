@@ -10,7 +10,7 @@ export default function Profile() {
 
      <form className='flex flex-col gap-4' action="">
         <img src={currentUser.avatar} alt="profile"
-        className='rounded-full h-24 w-24 object-cover 
+        className=' border-black rounded-full h-24 w-24 object-cover 
         curser-pointer self-center mt-2' />
 
      <input type="text" placeholder='username' 
