@@ -21,9 +21,9 @@ app.use(express.json());
 
 const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test';
 
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+mongoose.connect(process.env.MONGO_URI, {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
 })
 .then(() => {
     console.log("Connected to MongoDB");
@@ -34,7 +34,7 @@ mongoose.connect(mongoURI, {
 
 
 app.listen(3000,()=> {
-    console.log("server os running on port 3000");
+    console.log("server is running on port 3000");
 });
 
 //api route

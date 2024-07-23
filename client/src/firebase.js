@@ -1,22 +1,26 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyArZYTweaxl3N1qJWyXnUJFWIken5JoPW4",
-  authDomain: "mern-estate-e3d1d.firebaseapp.com",
-  projectId: "mern-estate-e3d1d",
-  storageBucket: "mern-estate-e3d1d.appspot.com",
-  messagingSenderId: "89984620532",
-  appId: "1:89984620532:web:0d9997419f117206bccba1"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Initialize Firebase
- export const app = initializeApp(firebaseConfig);
- export const auth = getAuth(app);
- export const db = getFirestore(app);
+if (!getApps().length) {
+  // Initialize Firebase
+  initializeApp(firebaseConfig);
+} else {
+  console.log("Firebase app already initialized");
+}
+
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+
+export { app };

@@ -12,7 +12,7 @@ const persistConfig = {
   key :'root',
   storage,
   version:1,
-}
+};
 
 //Create peristed reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer );

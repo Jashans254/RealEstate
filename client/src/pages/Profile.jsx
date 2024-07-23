@@ -1,8 +1,14 @@
-import { current } from '@reduxjs/toolkit'
+
 import React from 'react'
 import { useSelector } from 'react-redux';
 export default function Profile() {
   const {currentUser} = useSelector((state)=> state.user);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+  };
+
   return (
     <div className='p-3 max-w-lg mx-auto'> 
      <h1 className='text-3xl font-semibold text-center
@@ -15,14 +21,15 @@ export default function Profile() {
 
      <input type="text" placeholder='username' 
      className='border p-3 rounded-lg' id='username' />  
+
      <input type="email" placeholder='email' 
-     className='border p-3 rounded-lg'  id='email'/>  
+     className='border p-3 rounded-lg'  id='email'/> 
+
      <input type="password" placeholder='password' 
      className='border p-3 rounded-lg' id='password'/>   
 
-     <button className='bg-slate-700 text-white
+     <button type='submit' className='bg-slate-700 text-white
      rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>Update</button>
-
 
      </form>
 

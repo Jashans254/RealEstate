@@ -2,7 +2,8 @@ import {FaSearch} from 'react-icons/fa';
 import {Link }  from 'react-router-dom';
 import { useSelector } from 'react-redux';
 export default function Header() {
-  const { currentUser }= useSelector(state => state.user);
+  const { currentUser } = useSelector(state => state.user);
+
   return (
     <div>
      <header className='bg-slate-200 shadow-md'>
@@ -13,33 +14,40 @@ export default function Header() {
             <span className='text-slate-700'>Estate</span>
         </h1>
         </Link>
+
         <form action="" className='bg-slate-100 p-3 rounded-lg flex items-center'>
             <input type="text" placeholder='Search..' className='bg-transparent focus:outline-none w-24 sm:w-64' />
             <FaSearch className='text-slate-600'></FaSearch>
         </form>
-        <ul className='flex gap-4'>
-            <Link to='/'>
-            <li className='hidden sm:inline text-color-700 hover:underline'>Home </li>
-            </Link>
 
-            <Link to='/about'>
-            <li className='hidden sm:inline text-color-700 hover:underline'>About</li>
-            </Link>
-       
-            <Link to='/profile'> 
-          {currentUser ? (
-                <img className='rounded-full h-7 w-7 object-cover
-                ' src={currentUser.avatar} alt="profile" />
-          ):
-            <li className=' text-color-700 hover:underline'>Sign In</li>
+        <ul className='flex gap-4 items-center'>
+        <li className='hidden sm:inline text-slate-700 hover:underline'>
+            <Link to='/'>Home</Link>
+          </li>
 
-        }
-        </Link>
+            
+          <li className='hidden sm:inline text-slate-700 hover:underline'>
+            <Link to='/about'>About</Link>
+          </li>
+
+          <li>
+            <Link to='/profile'>
+              {currentUser ? (
+                <img
+                  className='rounded-full h-7 w-7 object-cover'
+                  src={currentUser.avatar}
+                  alt="profile"
+                />
+              ) : (
+                <span className='text-slate-700 hover:underline'>Sign In</span>
+              )}
+            </Link>
+          </li>
           </ul>
         </div>
         
         
      </header>
     </div>
-  )
-}
+  );
+};
