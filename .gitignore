@@ -1,12 +1,18 @@
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
 .env
+
+# Build files
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
