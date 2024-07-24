@@ -3,13 +3,14 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 
 // import path from 'path';
 dotenv.config();
 const app = express();
 
 app.use(express.json());
-
+app.use(cookieParser());
 
 // mongoose.connect('mongodb://127.0.0.1:27017/test')
 // .then(()=> {
