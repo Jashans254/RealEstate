@@ -56,7 +56,7 @@ export default function OAuth() {
       <div>
       <button 
           onClick={handleGoogleClick} 
-          className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95' 
+          className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95 w-full' 
           disabled={loading}>
           {loading ? 'Signing in...' : 'Continue with Google'}
       </button>
