@@ -142,6 +142,7 @@ export default function CreateListing() {
        if(data.success === false){
         setError(data.message);
        }
+       console.log("Created");
        Navigate(`/listing/${data._id}`);
     }catch(error){
      setError(error.message);
