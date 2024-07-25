@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MdDescription } from "react-icons/md";
+
 
 const listingSchema = new mongoose.Schema(
     {

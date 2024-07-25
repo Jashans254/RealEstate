@@ -4,6 +4,8 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/
 import { app } from '../firebase';
 import { deleteUserFailure, deleteUserStart, deleteUserSuccess, signoutUserFailure, signoutUserStart, signoutUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from '../redux/user/userSlice';
 import { Link } from 'react-router-dom';
+
+
 export default function Profile() {
   const fileRef = useRef(null);
   const { currentUser, loading, err } = useSelector((state) => state.user);
