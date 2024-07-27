@@ -27,8 +27,7 @@ export default function Listing() {
   const [contact, setContact]= useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser)
-  console.log(listing);
+  
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -58,8 +57,30 @@ export default function Listing() {
       {error && (
         <p className='text-center my-7 text-2xl'>Something went wrong!</p>
       )}
-      {listing && !loading && !error && (
+      {listing && !loading && !error && listing.imageUrl &&
+      Array.isArray(listing.imageUrl) && listing.imageUrl.length >0 &&
+      (
         <div>
+              
+              <div>
+            <Swiper navigation>
+            {listing.imageUrl.map((url) => (
+                <SwiperSlide key={url}>
+                  <div
+                    style={{
+                      background: `url(${listing.imageUrl}) center no-repeat`,
+                      backgroundSize: 'cover',
+                    }}
+                    className='h-[500px]'
+                    key={listing._id}
+                  ></div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+              </div>
+
+        
+
                 <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
                 <FaShare
                 className='text-slate-500'
