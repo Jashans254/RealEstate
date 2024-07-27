@@ -16,7 +16,7 @@ export default function Search() {
     });
     const [loading, setloading] = useState(false);
     const [listings, setlistings] = useState([]);
-    console.log(listings);
+    const [ showMore , setshowMore]= useState(false);
 
     useEffect(()=> {
         const urlParams = new URLSearchParams(location.search);
@@ -48,9 +48,16 @@ export default function Search() {
         }   
         const fetchlistings = async () => {
               setloading(true);
+              setshowMore(false);
               const searchTerm = urlParams.toString();
               const res = await  fetch(`/api/listing/get?${searchTerm}`);
               const data = await res.json();
+              if(data.length >8){
+                setshowMore(true);
+              }
+              else{
+                setshowMore(false);
+              }
               setlistings(data);
               setloading(false);
         }
@@ -95,6 +102,21 @@ export default function Search() {
      const searchTerm = urlParams.toString();
      navigate(`/search?${searchTerm}`);
 
+    }
+
+
+    const onShowMoreClick = async()=> {
+        const numberoflistings = listings.length;
+        const startIndex = numberoflistings;
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.set('startIndex', startIndex);
+        const searchTerm = urlParams.toString();
+        const res = await fetch(`api/listing/get?${searchTerm}`);
+        const data = await res.json();
+        if(data.length< 9){
+            setshowMore(false);
+        }
+        setlistings([...listings, ...data]);
     }
   return (
     <div className='flex flex-col md:flex-row '>
@@ -189,7 +211,16 @@ export default function Search() {
                     <ListingItem key={listing._id} listing={listing}/>
                 )
             }
+
+            {showMore && (
+                <button onClick={ onShowMoreClick}
+                className='text-green-700 hover:underline p-7
+                text-center w-full'>
+                    Show More
+                </button>
+            )}
         </div>
+
       </div>
     </div>
   )
