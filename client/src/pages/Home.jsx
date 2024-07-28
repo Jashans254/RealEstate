@@ -38,7 +38,7 @@ export default function Home() {
 
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=sale&limit=4');
+        const res = await fetch('/api/listing/get?type=sell&limit=4');
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
@@ -79,7 +79,7 @@ export default function Home() {
           offerListings.map((listing) => (
             <SwiperSlide>
               <div
-                style={{
+                style={{ 
                   background: `url(${listing.imageUrl[0]}) center no-repeat`,
                   backgroundSize: 'cover',
                 }}
@@ -123,7 +123,7 @@ export default function Home() {
           <div className=''>
             <div className='my-3'>
               <h2 className='text-2xl font-semibold text-slate-600'>Recent places for sale</h2>
-              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more places for sale</Link>
+              <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sell'}>Show more places for sale</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
               {saleListings.map((listing) => (
